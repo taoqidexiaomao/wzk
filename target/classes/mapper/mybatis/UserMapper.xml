@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhwl.wzk.mybatis.mapper.UserMapper">
+    <resultMap id="myResultMap" type="com.lhwl.wzk.mybatis.entity.User">
+        <id column="userId" property="userId"/>
+        <result column="age" property="age"/>
+        <result column="name" property="name"/>
+        <collection property="list" column="userid"
+                    javaType="ArrayList" ofType="com.lhwl.wzk.mybatis.entity.Grade">
+            <result property="userid" column="userid"/>
+            <result property="grade" column="grade"/>
+        <collection property="last" column="tId"
+                    javaType="ArrayList" ofType="map">
+            <result property="name" column="names"/>
+        </collection>
+        </collection>
+
+    </resultMap>
+    <select id="test" resultMap="myResultMap">
+    SELECT
+        u.age,
+        u.`name`,
+        u.userId,
+        g.grade,
+        g.userid,
+        t.name as names
+    FROM
+        user u
+        LEFT JOIN grade g ON g.userid = u.userId
+        LEFT JOIN test t on t.tId=g.tId
+        </select>
+</mapper>
