@@ -37,63 +37,63 @@ class WzkApplicationTests {
 
     @Test
     public void testSelect() {
-        System.out.println(("----- selectAll method test ------"));
-        String fullname="测试课";
-        QueryWrapper<Student> queryWrapper = new QueryWrapper<>();
-        //queryWrapper.ge("SId", 2);
-        //queryWrapper.eq("SId", 2);
-        queryWrapper.groupBy("Sname");
-        queryWrapper.having("SId>{0}","5");
-        Page<Student> page = new Page<>(1, 2);
-        Page<Map<String,Object>> paget = new Page<>(1, 2);
-        List<Course> userList = courseMapper.selectList(null);
-        IPage<Student> pages=studentMapper.selectPage(page,queryWrapper);
-        System.out.println("总条数"+pages.getTotal());
-        System.out.println("总页数"+pages.getPages());
-        IPage<Map<String,Object>> userIPage = studentMapper.selectMapsPage(paget, queryWrapper);
-        System.out.println("总条数"+userIPage.getTotal());
-        System.out.println("总页数"+userIPage.getPages());
-        //Assert.assertEquals(5, userList.size());
-        userList.forEach(System.out::println);
+//        System.out.println(("----- selectAll method test ------"));
+//        String fullname="测试课";
+//        QueryWrapper<Student> queryWrapper = new QueryWrapper<>();
+//        //queryWrapper.ge("SId", 2);
+//        //queryWrapper.eq("SId", 2);
+//        queryWrapper.groupBy("Sname");
+//        queryWrapper.having("SId>{0}","5");
+//        Page<Student> page = new Page<>(1, 2);
+//        Page<Map<String,Object>> paget = new Page<>(1, 2);
+//        List<Course> userList = courseMapper.selectList(null);
+//        IPage<Student> pages=studentMapper.selectPage(page,queryWrapper);
+//        System.out.println("总条数"+pages.getTotal());
+//        System.out.println("总页数"+pages.getPages());
+//        IPage<Map<String,Object>> userIPage = studentMapper.selectMapsPage(paget, queryWrapper);
+//        System.out.println("总条数"+userIPage.getTotal());
+//        System.out.println("总页数"+userIPage.getPages());
+//        //Assert.assertEquals(5, userList.size());
+//        userList.forEach(System.out::println);
     }
     @Test
     public void queryUserForPage(){
-        Page<Course> page=new Page();
-        page.setCurrent(1);
-        page.setSize(2);
-        IPage<Course> coursePage = courseMapper.selectPage(page, null);
-        List<Course> list = coursePage.getRecords();
-        list.forEach(System.out::println);
+//        Page<Course> page=new Page();
+//        page.setCurrent(1);
+//        page.setSize(2);
+//        IPage<Course> coursePage = courseMapper.selectPage(page, null);
+//        List<Course> list = coursePage.getRecords();
+//        list.forEach(System.out::println);
     }
 
     @Test
     public void test() {
-        List<User> user=iUserService.test();
-        System.out.println(JSON.toJSONString(user));
-        List<Apple> list = new ArrayList<>();
-        Apple apple=new Apple();
-        apple.setColor("green");
-        apple.setWeight(20);
-        list.add(apple);
-        //对象实例语法	instanceRef::methodName
-        list.forEach(Apple::print);
+//        List<User> user=iUserService.test();
+//        System.out.println(JSON.toJSONString(user));
+//        List<Apple> list = new ArrayList<>();
+//        Apple apple=new Apple();
+//        apple.setColor("green");
+//        apple.setWeight(20);
+//        list.add(apple);
+//        //对象实例语法	instanceRef::methodName
+//        list.forEach(Apple::print);
     }
 
     @Test
     void name() {
-        Student s=new Student();
-        s.setSId(1);
-        s.setSname("张三");
-        s.setSage(21);
-        s.setSsex("男");
-        List<Student> students = new ArrayList();
-        students.add(s);
-        String str = JSON.toJSONString(students); // List转json
-        log.info(str);
-
-        String str3 = "{\"data\":[{\"sId\":1,\"sage\":21,\"sname\":\"张三\",\"ssex\":\"男\"}]}";// 放进去的是List
-        JsonUtil ss = JSON.parseObject(str3,new TypeReference<JsonUtil>(){}); // Json 转List
-        ss.getData().forEach(System.out::println);
+//        Student s=new Student();
+//        s.setSId(1);
+//        s.setSname("张三");
+//        s.setSage(21);
+//        s.setSsex("男");
+//        List<Student> students = new ArrayList();
+//        students.add(s);
+//        String str = JSON.toJSONString(students); // List转json
+//        log.info(str);
+//
+//        String str3 = "{\"data\":[{\"sId\":1,\"sage\":21,\"sname\":\"张三\",\"ssex\":\"男\"}]}";// 放进去的是List
+//        JsonUtil ss = JSON.parseObject(str3,new TypeReference<JsonUtil>(){}); // Json 转List
+//        ss.getData().forEach(System.out::println);
     }
 
     public static void print(Apple content){
