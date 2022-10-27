@@ -20,6 +20,7 @@
         <datasource-mapping>
           <factory-entry name="entityManagerFactory" value="9ceaff82-08c9-43bb-b090-5a5715619a28" />
           <factory-entry name="noname-a.xml@0" value="5f0b0095-62ad-4e89-9a61-246a8a94613f" />
+          <factory-entry name="wzk" />
         </datasource-mapping>
         <naming-strategy-map>
           <unit-entry name="entityManagerFactory" />
