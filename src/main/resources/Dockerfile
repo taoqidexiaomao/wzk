@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM java:8
 # 作者
 MAINTAINER mrli
 # 系统编码
