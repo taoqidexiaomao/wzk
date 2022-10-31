@@ -27,6 +27,7 @@ node {
                   	sh "docker push ${harbor_url}/${harbor_project_name}/${imageName}"
                     sh "echo 镜像上传成功"
     }
+    }
     stage('issue') {
         //找到流水线语法sshPublisher:send bulid artifacts over ssh，其它的不管；execCommand中为deployy.sh脚本路径
         sshPublisher(publishers: [sshPublisherDesc(configName: 'baidu', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '/home/jenkins_home/workspace/deploy.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '/target', sourceFiles: 'target/*.jar')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
