@@ -11,13 +11,11 @@ node {
         [[credentialsId: '0c4162d7-95a9-486d-9e34-636f469b338b', url: 'https://github.com/taoqidexiaomao/wzk.git']]])
     }
     stage('打包') {
-       sh "cd /home/jenkins_home/workspace"
-       sh "mvn -f test clean install"
+       sh "mvn -f /home/jenkins_home/workspace/${project_name} clean install"
     }
     stage('编译') {
        //编译，构建本地镜像;这个步骤要导入镜像包
-       sh "cd /home/jenkins_home/workspace"
-       sh "mvn -f ${project_name} clean package dockerfile:build"
+       sh "mvn -f /home/jenkins_home/workspace/${project_name} clean package dockerfile:build"
        //给镜像打标签
        sh "docker tag ${imageName} ${harbor_url}/${harbor_project_name}/${imageName}"
     }
