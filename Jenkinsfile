@@ -11,6 +11,7 @@ node {
         [[credentialsId: '0c4162d7-95a9-486d-9e34-636f469b338b', url: 'https://github.com/taoqidexiaomao/wzk.git']]])
     }
     stage('打包') {
+       sh "cd /home/jenkins_home/workspace"
        sh "mvn -f test clean install"
     }
     stage('编译') {
