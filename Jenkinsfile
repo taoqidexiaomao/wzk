@@ -13,7 +13,7 @@ node {
     stage('打包') {
        //编译，构建本地镜像;这个步骤要导入镜像包
        sh "mvn -f /home/jenkins_home/workspace/${project_name} clean package"
-       sh "docker build -t ${imageName}:${tag} /home/jenkins_home/workspace/${project_name}/."
+       sh "docker build -t ${imageName} /home/jenkins_home/workspace/${project_name}/."
        //给镜像打标签
        sh "docker tag ${imageName} ${harbor_url}/${harbor_project_name}/${imageName}"
     }
