@@ -4,6 +4,8 @@ def tag = "latest"
 def harbor_url = "180.76.112.7:5000"
 def harbor_project_name = "test"
 def imageName = "${project_name}:${tag}"
+def username="root"
+def password="lijiaqi@123"
 node {
     def mvnHome
     stage('拉取代码') { // 在流水线语法中选择checkout:Check out from version control，可得到此步骤脚本
