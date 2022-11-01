@@ -1,7 +1,7 @@
 def project_url = "https://github.com/taoqidexiaomao/wzk.git"
 def gitlab_auth = "0c4162d7-95a9-486d-9e34-636f469b338b"
 def tag = "latest"
-def harbor_url = "180.76.112.7:2375"
+def harbor_url = "180.76.112.7:5000"
 def harbor_project_name = "test"
 def imageName = "${project_name}:${tag}"
 node {
