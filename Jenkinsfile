@@ -18,13 +18,12 @@ node {
        sh "docker tag ${imageName} ${harbor_url}/${harbor_project_name}/${imageName}"
     }
     stage('上传镜像') {
-    withCredentials([sshUserPrivateKey(credentialsId: '0c4162d7-95a9-486d-9e34-636f469b338b', keyFileVariable: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCse1vwvc/oWjs8TvUvm+HqDv6lGmCmoTc9T4+5+2FR+qvsZ/5YIOVGZCl6gGNzatDakVwjIEzvCH7xQJSnrRIOe0REhizWfDi4QDVlVcOewjXYuCoecDGlvx4wGkEYqF6g45lNjOclAMwAVLZRLUA1u2JBIrdvSxsMFhn8s9KBtSGcECqTqfg9EAeYfA2a14swl80VsBbeKRKvXY+209hWtu4C6CQo9jlfqavZ6+8/Yd/cfdS/yXfVZoTsz0jGNH6h8zBHI/HQ9mGMsA/hI09eSa9OG5FQcjHhX/5WG0eogX1G3qsJ6I2S2PraJEN95DjM83aFkeQi/l1Rtb3RxfiF hdynqu@163.com', passphraseVariable: 'lijiaqi@123', usernameVariable: 'root')]) {
-                    //登录
-                    sh "docker login -u ${username} -p ${password} ${harbor_url}"
-                    //上传镜像
-                  	sh "docker push ${harbor_url}/${harbor_project_name}/${imageName}"
-                    sh "echo 镜像上传成功"
-    }
+    withCredentials([usernamePassword(credentialsId: '4e1441ba-0cd4-4e3d-91f0-d77a058a5c55', passwordVariable: 'lijiaqi@123', usernameVariable: 'root')]) {                    //登录
+                        sh "docker login -u ${username} -p ${password} ${harbor_url}"
+                        //上传镜像
+                        sh "docker push ${harbor_url}/${harbor_project_name}/${imageName}"
+                        sh "echo 镜像上传成功"
+        }
     }
     stage('执行') {
         //找到流水线语法sshPublisher:send bulid artifacts over ssh，其它的不管；execCommand中为deployy.sh脚本路径
