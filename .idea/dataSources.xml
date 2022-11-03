@@ -13,5 +13,12 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://10.5.231.158:3306/wzk_web</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="192.168.60.128" uuid="82f178c1-b51a-4e3b-8c52-a660fe9348b3">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.60.128:3306/wzk</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
